@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { notFound } from "next/navigation";
 import { cars } from "@/data/cars";
 import Image from "next/image";
 import FilterSidebar from "@/components/FilterSidebar";
@@ -12,6 +14,7 @@ import CarCategorySection from "@/components/CarCategorySection";
 
 export default function CarDetailPage() {
   const params = useParams();
+  const router = useRouter();
   const carId = parseInt(params.id, 10);
   const car = cars.find((c) => c.id === carId);
 
@@ -42,7 +45,7 @@ export default function CarDetailPage() {
   const [isFav, setIsFav] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
 
-  if (!car) return <div className="p-8">Car not found.</div>;
+  if (!car) return notFound();
 
   // Mock data for Figma-style detail
   const description =
@@ -142,7 +145,12 @@ export default function CarDetailPage() {
                     <span className="text-gray-400 text-base sm:text-lg font-semibold ml-2 line-through">${car.price + 20}.00</span>
                     <span className="text-gray-400 text-xs sm:text-sm ml-1">/ days</span>
                   </div>
-                  <button className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-base font-semibold">Rent Now</button>
+                  <button
+                    className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-base font-semibold"
+                    onClick={() => router.push(`/car/${car.id}/payment`)}
+                  >
+                    Rent Now
+                  </button>
                 </div>
               </div>
             </div>

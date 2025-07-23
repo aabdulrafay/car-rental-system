@@ -1,15 +1,21 @@
 "use client"
 
 import { Heart, Fuel, Users, Gauge } from "lucide-react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function CarCard({ car }) {
+  const router = useRouter();
   const hasDiscount = car.discountPrice && car.discountPrice < car.price;
   const [isFav, setIsFav] = useState(false);
 
   return (
-    <div className="relative min-w-[248px] max-w-sm w-full bg-white rounded-2xl shadow-md overflow-hidden group transition hover:shadow-lg">
+    <div
+      className="relative min-w-[248px] max-w-sm w-full bg-white rounded-2xl shadow-md overflow-hidden group transition hover:shadow-lg cursor-pointer"
+      onClick={() => router.push(`/car/${car.id}`)}
+      tabIndex={0}
+      role="button"
+    >
       {/* Favorite Icon */}
       <span
         className="absolute top-4 right-4 z-10 text-gray-500 hover:text-red-500 transition cursor-pointer"
@@ -20,7 +26,8 @@ export default function CarCard({ car }) {
       >
         <Heart className={`w-5 h-5 transition ${isFav ? 'text-red-500' : 'text-gray-500'}`} fill={isFav ? '#ef4444' : 'none'} />
       </span>
-      <Link href={`/car/${car.id}`} className="block group" tabIndex={-1}>
+      {/* Card Content */}
+      <div>
         {/* Title & Type */}
         <div className="pt-4 px-4">
           <h3 className="text-lg font-bold text-gray-900">{car.name}</h3>
@@ -66,12 +73,19 @@ export default function CarCard({ car }) {
                 </>
               )}
             </div>
-            <span className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition cursor-pointer">
+            {/* Rent Now Button */}
+            <button
+              className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition cursor-pointer"
+              onClick={e => {
+                e.stopPropagation();
+                router.push(`/car/${car.id}/payment`);
+              }}
+            >
               Rent Now
-            </span>
+            </button>
           </div>
         </div>
-      </Link>
+      </div>
     </div>
   );
 }

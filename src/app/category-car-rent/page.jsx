@@ -59,11 +59,11 @@ export default function CategoryPage() {
                 <p className="text-sm text-gray-400">Try adjusting your filters or search to find cars that match your criteria.</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {filteredCars.map((car, index) => (
-                  <CarCard key={index} car={car} />
-                ))}
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredCars.map((car, index) => (
+                <CarCard key={index} car={car} />
+              ))}
+            </div>
             )}
           </div>
           {/* Show More Section */}
