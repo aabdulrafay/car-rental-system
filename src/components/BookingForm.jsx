@@ -7,8 +7,8 @@ export default function BookingForm() {
       {/* Pick-Up Section */}
       <div className="flex flex-col items-center bg-white p-4 rounded-xl shadow-md w-full md:w-[48%] gap-4">
         <div className="w-full flex items-center">
-          <div className="w-2 h-2 rounded-full bg-blue-800 border-[2px] border-sky-200 border-opacity-30 mr-1"></div>
-          <label className="text-sm font-semibold text-gray-700">Pick - Up</label>
+          <input type="radio" checked readOnly className="accent-blue-600 mr-2" />
+          <span className="text-sm font-bold text-black">Pick - Up</span>
         </div>
         <SelectGroup />
       </div>
@@ -30,8 +30,8 @@ export default function BookingForm() {
       {/* Drop-Off Section */}
       <div className="flex flex-col items-center bg-white p-4 rounded-xl shadow-md w-full md:w-[48%] gap-4 ">
         <div className="w-full flex items-center">
-          <div className="w-2 h-2 rounded-full bg-blue-800 border-[2px] border-sky-200 border-opacity-30 mr-1"></div>
-          <label className="text-sm font-semibold text-gray-700">Drop - Off</label>
+          <input type="radio" checked readOnly className="accent-blue-600 mr-2" />
+          <span className="text-sm font-bold text-black">Drop - Off</span>
         </div>
         <SelectGroup />
       </div>
