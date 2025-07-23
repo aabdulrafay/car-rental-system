@@ -8,13 +8,15 @@ import {
 
 export default function Navbar() {
   return (
-    <nav className="bg-white px-8 md:px-16 py-4 flex items-center justify-between shadow-md">
+    <nav className="bg-white px-8 md:px-16 py-4 flex items-center justify-between shadow-md z-30 relative">
       {/* Left Side: Logo + Search */}
       <div className="flex items-center space-x-6">
         {/* Logo */}
+        <a href="/">
         <div className="mr-20 text-2xl font-bold text-blue-700 font-plus-jakarta">
           MORENT
         </div>
+        </a>
 
         {/* Search Bar (not centered, wider) */}
         <div className="hidden md:flex items-center bg-white rounded-full px-4 py-2 w-[500px] border border-gray-300">

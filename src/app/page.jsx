@@ -5,7 +5,7 @@ import { popularCars, recommendedCars } from "@/data/cars";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center px-2 md:px-4 lg:px-6 py-6 gap-10 max-w-7xl mx-auto">
+    <main className="flex flex-col items-center px-2 md:px-4 lg:px-8 py-6 gap-10 max-w-7xl mx-auto">
       {/* Hero Section */}
       <section className="flex flex-col md:flex-row flex-wrap gap-2 w-full justify-between items-center">
         <HeroCard
@@ -46,9 +46,12 @@ export default function Home() {
       <section className="w-full relative mt-6 px-4 sm:px-6 lg:px-8">
         {/* Centered Button */}
         <div className="flex justify-center">
-          <button className="px-6 py-2 bg-blue-600 text-white text-sm sm:text-base rounded hover:bg-blue-700 transition">
+          <a
+            href="/category-car-rent"
+            className="px-6 py-2 bg-blue-600 text-white text-sm sm:text-base rounded hover:bg-blue-700 transition inline-flex items-center justify-center"
+          >
             Show more car
-          </button>
+          </a>
         </div>
 
         {/* Bottom-right Label */}

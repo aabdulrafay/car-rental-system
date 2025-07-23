@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         <Header />
         <Navbar />
         </header>
-        <main className="flex-grow p-6">{children}</main>
+        <main className="flex-grow bg-gray-100">{children}</main>
         <footer>
         <Footer />
         </footer>

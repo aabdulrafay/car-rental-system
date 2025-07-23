@@ -7,7 +7,11 @@ export default function Footer() {
       <div className="px-1 md:px-12 flex flex-col lg:flex-row justify-between gap-8 border-b pb-6">
         {/* Logo & Description */}
         <div className="max-w-sm md:">
-          <h2 className="text-lg md:text-2xl font-bold text-blue-600 mb-2">MORENT</h2>
+          <a href="/">
+            <h2 className="text-lg md:text-2xl font-bold text-blue-600 mb-2">
+              MORENT
+            </h2>
+          </a>
           <p className="text-gray-500">
             Our vision is to provide convenience <br />
             and help increase your sales business.
@@ -20,10 +24,18 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-gray-900 mb-2">About</h3>
             <ul className="space-y-1">
-              <li><Link href="#">How it works</Link></li>
-              <li><Link href="#">Featured</Link></li>
-              <li><Link href="#">Partnership</Link></li>
-              <li><Link href="#">Business Relation</Link></li>
+              <li>
+                <Link href="#">How it works</Link>
+              </li>
+              <li>
+                <Link href="#">Featured</Link>
+              </li>
+              <li>
+                <Link href="#">Partnership</Link>
+              </li>
+              <li>
+                <Link href="#">Business Relation</Link>
+              </li>
             </ul>
           </div>
 
@@ -31,10 +43,18 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-gray-900 mb-2">Community</h3>
             <ul className="space-y-1">
-              <li><Link href="#">Events</Link></li>
-              <li><Link href="#">Blog</Link></li>
-              <li><Link href="#">Podcast</Link></li>
-              <li><Link href="#">Invite a friend</Link></li>
+              <li>
+                <Link href="#">Events</Link>
+              </li>
+              <li>
+                <Link href="#">Blog</Link>
+              </li>
+              <li>
+                <Link href="#">Podcast</Link>
+              </li>
+              <li>
+                <Link href="#">Invite a friend</Link>
+              </li>
             </ul>
           </div>
 
@@ -42,10 +62,18 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-gray-900 mb-2">Socials</h3>
             <ul className="space-y-1">
-              <li><Link href="#">Discord</Link></li>
-              <li><Link href="#">Instagram</Link></li>
-              <li><Link href="#">Twitter</Link></li>
-              <li><Link href="#">Facebook</Link></li>
+              <li>
+                <Link href="#">Discord</Link>
+              </li>
+              <li>
+                <Link href="#">Instagram</Link>
+              </li>
+              <li>
+                <Link href="#">Twitter</Link>
+              </li>
+              <li>
+                <Link href="#">Facebook</Link>
+              </li>
             </ul>
           </div>
         </div>
