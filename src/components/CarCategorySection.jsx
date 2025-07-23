@@ -1,3 +1,5 @@
+"use client";
+
 import CarCard from "./CarCard";
 import Link from "next/link";
 import { ArrowRight, Search } from "lucide-react";
