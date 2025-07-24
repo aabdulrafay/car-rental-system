@@ -18,13 +18,24 @@ export default function CarCard({ car }) {
     >
       {/* Favorite Icon */}
       <span
-        className="absolute top-4 right-4 z-10 text-gray-500 hover:text-red-500 transition cursor-pointer"
+        className="absolute top-4 right-4 z-10 cursor-pointer"
         onClick={e => {
           e.stopPropagation();
           setIsFav(fav => !fav);
         }}
+        tabIndex={0}
+        onKeyDown={e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setIsFav(fav => !fav);
+          }
+        }}
+        aria-label={isFav ? "Remove from favorites" : "Add to favorites"}
       >
-        <Heart className={`w-5 h-5 transition ${isFav ? 'text-red-500' : 'text-gray-500'}`} fill={isFav ? '#ef4444' : 'none'} />
+        <Heart
+          className={`w-6 h-6 transition ${isFav ? 'text-red-500' : 'text-gray-500'} hover:text-red-500 focus:text-red-500`}
+          fill={isFav ? '#ef4444' : 'none'}
+        />
       </span>
       {/* Card Content */}
       <div>
