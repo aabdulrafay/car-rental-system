@@ -55,7 +55,7 @@ export default function PaymentSuccess({ onHome }) {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, type: 'tween', ease: 'easeOut' }}
         >
-          <CheckCircle className="w-20 h-20 text-green-500 mb-4" />
+      <CheckCircle className="w-20 h-20 text-green-500 mb-4" />
         </motion.div>
         {/* Animated Heading */}
         <motion.h2
@@ -79,7 +79,7 @@ export default function PaymentSuccess({ onHome }) {
         {/* Animated Button */}
         <motion.button
           className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-base font-semibold shadow-md"
-          onClick={onHome}
+        onClick={onHome}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.45, ease: 'easeOut' }}

@@ -5,6 +5,7 @@ import FilterSidebar from "@/components/FilterSidebar";
 import ReviewList from "@/components/ReviewList";
 import { Heart } from "lucide-react";
 import CarCategorySection from "@/components/CarCategorySection";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function CarDetailClient({ car, cars, recommendedCars }) {
   // Filter state for recent cars
@@ -32,7 +33,9 @@ export default function CarDetailClient({ car, cars, recommendedCars }) {
   });
 
   const [isFav, setIsFav] = useState(false);
+  const [favAnim, setFavAnim] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [imgKey, setImgKey] = useState(0);
 
   // Mock data for Figma-style detail
   const description =
@@ -41,6 +44,19 @@ export default function CarDetailClient({ car, cars, recommendedCars }) {
   const subheadline = "Safety and comfort while driving a futuristic and elegant sports car";
   const rating = 4;
   const reviewerCount = 440;
+
+  // Animate heart icon pop on favorite
+  function handleFav() {
+    setIsFav(fav => !fav);
+    setFavAnim(true);
+    setTimeout(() => setFavAnim(false), 350);
+  }
+
+  // Animate gallery image transition
+  function handleImageChange(i) {
+    setSelectedImage(i);
+    setImgKey(prev => prev + 1); // force AnimatePresence to re-render
+  }
 
   return (
     <main className="w-full flex-1 flex min-h-screen overflow-x-hidden">
@@ -60,13 +76,20 @@ export default function CarDetailClient({ car, cars, recommendedCars }) {
                   <h2 className="text-white text-lg sm:text-2xl font-bold mb-2">{headline}</h2>
                   <p className="text-blue-100 text-xs sm:text-base mb-4">{subheadline}</p>
                   <div className="flex justify-center items-center flex-1 w-full">
-                    <Image
-                      src={car.gallery?.[selectedImage] || car.image}
-                      alt={car.name}
-                      width={340}
-                      height={160}
-                      className="object-contain w-[220px] h-[100px] sm:w-[340px] sm:h-[160px]"
-                    />
+                    <AnimatePresence mode="wait">
+                      <motion.img
+                        key={imgKey + selectedImage}
+                        src={car.gallery?.[selectedImage] || car.image}
+                        alt={car.name}
+                        width={340}
+                        height={160}
+                        className="object-contain w-[220px] h-[100px] sm:w-[340px] sm:h-[160px]"
+                        initial={{ opacity: 0, scale: 0.96, x: 32 }}
+                        animate={{ opacity: 1, scale: 1, x: 0 }}
+                        exit={{ opacity: 0, scale: 0.96, x: -32 }}
+                        transition={{ duration: 0.5, ease: 'easeOut' }}
+                      />
+                    </AnimatePresence>
                   </div>
                 </div>
                 {/* Gallery Thumbnails */}
@@ -74,7 +97,7 @@ export default function CarDetailClient({ car, cars, recommendedCars }) {
                   {car.gallery?.map((img, i) => (
                     <button
                       key={i}
-                      onClick={() => setSelectedImage(i)}
+                      onClick={() => handleImageChange(i)}
                       className={`rounded-lg min-w-[80px] sm:min-w-[120px] transition p-0 border-none bg-transparent outline-none`}
                       tabIndex={0}
                       style={{ outline: 'none' }}
@@ -93,9 +116,18 @@ export default function CarDetailClient({ car, cars, recommendedCars }) {
                 <div className="w-full">
                   <div className="flex items-center justify-between mb-2 w-full">
                     <h3 className="text-lg sm:text-2xl font-bold text-gray-900">{car.name}</h3>
-                    <span onClick={() => setIsFav(fav => !fav)} className="cursor-pointer">
-                      <Heart className={`w-6 h-6 sm:w-7 sm:h-7 transition ${isFav ? 'text-red-500' : 'text-gray-500'} hover:text-red-500`} fill={isFav ? '#ef4444' : 'none'} />
-                    </span>
+                    <motion.span
+                      onClick={handleFav}
+                      className="cursor-pointer"
+                      whileTap={{ scale: 1.25 }}
+                    >
+                      <motion.div
+                        animate={favAnim ? { scale: [1, 1.3, 1], rotate: [0, -15, 0] } : { scale: 1, rotate: 0 }}
+                        transition={{ duration: 0.35, times: [0, 0.5, 1] }}
+                      >
+                        <Heart className={`w-6 h-6 sm:w-7 sm:h-7 transition ${isFav ? 'text-red-500' : 'text-gray-500'} hover:text-red-500`} fill={isFav ? '#ef4444' : 'none'} />
+                      </motion.div>
+                    </motion.span>
                   </div>
                   {/* Centered rating and description */}
                   <div className="flex flex-col items-center mb-4">
@@ -130,12 +162,15 @@ export default function CarDetailClient({ car, cars, recommendedCars }) {
                     <span className="text-gray-400 text-base sm:text-lg font-semibold ml-2 line-through">${car.price + 20}.00</span>
                     <span className="text-gray-400 text-xs sm:text-sm ml-1">/ days</span>
                   </div>
-                  <button
+                  <motion.button
                     className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-base font-semibold"
                     onClick={() => window.location.assign(`/car/${car.id}/payment`)}
+                    whileHover={{ scale: 1.06 }}
+                    whileTap={{ scale: 0.97 }}
+                    transition={{ type: 'tween', duration: 0.16 }}
                   >
                     Rent Now
-                  </button>
+                  </motion.button>
                 </div>
               </div>
             </div>

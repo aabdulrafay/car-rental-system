@@ -1,40 +1,65 @@
+"use client";
 import { ArrowUpDown } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function BookingForm() {
   return (
     <section className="relative w-full max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
-      
       {/* Pick-Up Section */}
-      <div className="flex flex-col items-center bg-white p-4 rounded-xl shadow-md w-full md:w-[48%] gap-4">
+      <motion.div
+        className="flex flex-col items-center bg-white p-4 rounded-xl shadow-md w-full md:w-[48%] gap-4"
+        initial={{ opacity: 0, y: 32, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+      >
         <div className="w-full flex items-center">
           <input type="radio" checked readOnly className="accent-blue-600 mr-2" />
           <span className="text-sm font-bold text-black">Pick - Up</span>
         </div>
         <SelectGroup />
-      </div>
+      </motion.div>
 
       {/* Mobile Switch Icon - positioned between cards */}
       <div className="block md:hidden absolute left-1/2 top-[50%] translate-x-[-50%] -translate-y-1/2 z-10">
-        <div className="bg-blue-600 text-white p-3 rounded-md shadow-md hover:scale-105 transition-transform cursor-pointer">
+        <motion.div
+          className="bg-blue-600 text-white p-3 rounded-md shadow-md hover:scale-105 transition-transform cursor-pointer"
+          initial={{ y: -10, opacity: 0 }}
+          animate={{ y: [ -10, 0, -5, 0 ], opacity: 1 }}
+          transition={{ duration: 1.2, ease: 'easeOut', times: [0, 0.5, 0.8, 1] }}
+          whileHover={{ scale: 1.13 }}
+          whileTap={{ scale: 0.95 }}
+        >
           <ArrowUpDown />
-        </div>
+        </motion.div>
       </div>
 
       {/* Desktop Switch Icon */}
       <div className="hidden md:flex md:flex-col items-center justify-center">
-        <div className="bg-blue-600 text-white p-3 rounded-md shadow-md hover:scale-105 transition-transform cursor-pointer">
+        <motion.div
+          className="bg-blue-600 text-white p-3 rounded-md shadow-md hover:scale-105 transition-transform cursor-pointer"
+          initial={{ y: -10, opacity: 0 }}
+          animate={{ y: [ -10, 0, -5, 0 ], opacity: 1 }}
+          transition={{ duration: 1.2, ease: 'easeOut', times: [0, 0.5, 0.8, 1] }}
+          whileHover={{ scale: 1.13 }}
+          whileTap={{ scale: 0.95 }}
+        >
           <ArrowUpDown />
-        </div>
+        </motion.div>
       </div>
 
       {/* Drop-Off Section */}
-      <div className="flex flex-col items-center bg-white p-4 rounded-xl shadow-md w-full md:w-[48%] gap-4 ">
+      <motion.div
+        className="flex flex-col items-center bg-white p-4 rounded-xl shadow-md w-full md:w-[48%] gap-4 "
+        initial={{ opacity: 0, y: 32, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
+      >
         <div className="w-full flex items-center">
           <input type="radio" checked readOnly className="accent-blue-600 mr-2" />
           <span className="text-sm font-bold text-black">Drop - Off</span>
         </div>
         <SelectGroup />
-      </div>
+      </motion.div>
     </section>
   );
 }

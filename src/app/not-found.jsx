@@ -23,16 +23,16 @@ export default function NotFound() {
         >
           <Search className="w-14 h-14 text-blue-200 mx-auto" />
         </motion.div>
-        {/* Logo */}
+      {/* Logo */}
         <motion.h1
           className="text-3xl font-bold text-blue-700 font-plus-jakarta mb-1"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
         >
-          MORENT
+        MORENT
         </motion.h1>
-        {/* 404 Heading */}
+      {/* 404 Heading */}
         <motion.h2
           className="text-5xl font-extrabold text-gray-800 mb-3"
           initial={{ opacity: 0, y: 24 }}
@@ -59,8 +59,8 @@ export default function NotFound() {
           transition={{ duration: 0.6, delay: 0.7, ease: 'easeOut' }}
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.98 }}
-        >
-          <ArrowLeftCircle className="w-5 h-5" />
+      >
+        <ArrowLeftCircle className="w-5 h-5" />
           Go Back
         </motion.button>
       </motion.div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ChevronDown } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function ReviewList({ reviews }) {
   const [showAll, setShowAll] = useState(false);
@@ -14,7 +15,13 @@ export default function ReviewList({ reviews }) {
       </div>
       <ul className="space-y-8">
         {visibleReviews?.map((review, i) => (
-          <li key={i} className="flex gap-4 items-start">
+          <motion.li
+            key={i}
+            className="flex gap-4 items-start"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 + i * 0.12, ease: 'easeOut' }}
+          >
             {/* Avatar */}
             <img
               src={review.avatar || '/avatar-default.png'}
@@ -43,7 +50,7 @@ export default function ReviewList({ reviews }) {
                 {review.comment}
               </div>
             </div>
-          </li>
+          </motion.li>
         ))}
       </ul>
       {hasMore && (

@@ -1,6 +1,7 @@
 import React from "react";
 import { Star } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function RentalSummary({ car, promo, setPromo }) {
   return (
@@ -37,7 +38,15 @@ export default function RentalSummary({ car, promo, setPromo }) {
       </div>
       <div className="flex justify-between text-base font-bold mt-4">
         <span>Total Rental Price</span>
-        <span className="text-2xl sm:text-3xl font-extrabold text-gray-900">${car.price}.00</span>
+        <motion.span
+          className="text-2xl sm:text-3xl font-extrabold text-gray-900"
+          initial={{ scale: 0.9, color: '#2563eb', opacity: 0 }}
+          animate={{ scale: [1.1, 1], color: ['#2563eb', '#111827', '#2563eb'], opacity: 1 }}
+          transition={{ duration: 1, times: [0, 0.7, 1] }}
+          key={car.price}
+        >
+          ${car.price}.00
+        </motion.span>
       </div>
       <div className="text-xs text-gray-400 mt-2">Overall price and includes rental discount</div>
     </section>

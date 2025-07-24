@@ -3,40 +3,58 @@
 import { Heart, Fuel, Users, Gauge } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function CarCard({ car }) {
   const router = useRouter();
   const hasDiscount = car.discountPrice && car.discountPrice < car.price;
   const [isFav, setIsFav] = useState(false);
+  const [favAnim, setFavAnim] = useState(false);
+
+  // Animate heart icon pop on favorite
+  function handleFav(e) {
+    e.stopPropagation();
+    setIsFav(fav => !fav);
+    setFavAnim(true);
+    setTimeout(() => setFavAnim(false), 350);
+  }
 
   return (
-    <div
+    <motion.div
       className="relative min-w-[248px] max-w-sm w-full bg-white rounded-2xl shadow-md overflow-hidden group transition hover:shadow-lg cursor-pointer"
       onClick={() => router.push(`/car/${car.id}`)}
       tabIndex={0}
       role="button"
+      initial={{ opacity: 0, y: 32 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      whileHover={{ scale: 1.03, boxShadow: '0 8px 32px rgba(80, 112, 255, 0.10)' }}
+      whileTap={{ scale: 0.98 }}
     >
       {/* Favorite Icon */}
-      <span
+      <motion.span
         className="absolute top-4 right-4 z-10 cursor-pointer"
-        onClick={e => {
-          e.stopPropagation();
-          setIsFav(fav => !fav);
-        }}
+        onClick={handleFav}
         tabIndex={0}
         onKeyDown={e => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            setIsFav(fav => !fav);
+            handleFav(e);
           }
         }}
         aria-label={isFav ? "Remove from favorites" : "Add to favorites"}
+        whileTap={{ scale: 1.25 }}
       >
-        <Heart
-          className={`w-6 h-6 transition ${isFav ? 'text-red-500' : 'text-gray-500'} hover:text-red-500 focus:text-red-500`}
-          fill={isFav ? '#ef4444' : 'none'}
-        />
-      </span>
+        <motion.div
+          animate={favAnim ? { scale: [1, 1.3, 1], rotate: [0, -15, 0] } : { scale: 1, rotate: 0 }}
+          transition={{ duration: 0.35, times: [0, 0.5, 1] }}
+        >
+          <Heart
+            className={`w-6 h-6 transition ${isFav ? 'text-red-500' : 'text-gray-500'} hover:text-red-500 focus:text-red-500`}
+            fill={isFav ? '#ef4444' : 'none'}
+          />
+        </motion.div>
+      </motion.span>
       {/* Card Content */}
       <div>
       {/* Title & Type */}
@@ -97,6 +115,6 @@ export default function CarCard({ car }) {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
