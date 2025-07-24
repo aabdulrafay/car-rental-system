@@ -43,14 +43,14 @@ export default function CarDetailClient({ car, cars, recommendedCars }) {
   const reviewerCount = 440;
 
   return (
-    <main className="w-full flex-1 flex min-h-screen">
+    <main className="w-full flex-1 flex min-h-screen overflow-x-hidden">
       <div className="flex flex-col md:flex-row gap-6 items-stretch w-full min-h-screen">
         {/* Sidebar */}
-        <aside className="w-full md:w-64 min-w-[calc(100vw-2rem)] sm:min-w-[350px] bg-white h-full z-10 flex flex-col">
+        <aside className="w-full md:w-64 md:min-w-[220px] md:max-w-xs lg:min-w-[260px] lg:max-w-sm bg-white h-full z-10 flex flex-col">
           <FilterSidebar filters={filters} setFilters={setFilters} />
         </aside>
         {/* Main Content */}
-        <div className="flex-1 w-full flex flex-col items-center h-full py-6 space-y-6 px-4 md:px-8">
+        <div className="flex-1 min-w-0 w-full flex flex-col items-center h-full py-6 space-y-6 px-4 md:px-8">
           {/* Car Detail Top Section (Figma style) */}
           <section className="w-full max-w-4xl flex flex-col gap-6 mb-8">
             <div className="flex flex-col md:flex-row gap-6 md:gap-8">
