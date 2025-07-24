@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const transactions = [
   { id: 1, name: "Nissan GT – R", type: "Sport Car", date: "20 July", price: 80, image: "/car1.png" },
@@ -20,8 +21,14 @@ export default function RecentTransactions() {
         </Link>
       </div>
       <ul className="divide-y divide-gray-100">
-        {transactions.map(tx => (
-          <li key={tx.id} className="flex items-center gap-4 py-3">
+        {transactions.map((tx, i) => (
+          <motion.li
+            key={tx.id}
+            className="flex items-center gap-4 py-3"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 + i * 0.12, ease: 'easeOut' }}
+          >
             <Image src={tx.image} alt={tx.name} width={48} height={32} className="rounded object-contain" />
             <div className="flex-1">
               <div className="font-semibold text-sm text-gray-900">{tx.name}</div>
@@ -31,7 +38,7 @@ export default function RecentTransactions() {
               <span className="text-xs text-gray-400">{tx.date}</span>
               <span className="font-bold text-base text-gray-900">${tx.price}.00</span>
             </div>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </section>

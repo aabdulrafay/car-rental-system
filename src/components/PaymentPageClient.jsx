@@ -16,6 +16,7 @@ export default function PaymentPageClient({ car }) {
 
   useEffect(() => {
     if (showConfirmation) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
       const timer = setTimeout(() => {
         router.push("/");
       }, 4000);
