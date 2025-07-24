@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowLeftCircle } from "lucide-react";
 
 export default function NotFound() {
+  const router = useRouter();
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-6 py-12 text-center">
       {/* Logo */}
@@ -17,14 +18,14 @@ export default function NotFound() {
         Oops! The page you're looking for doesn't exist.
       </p>
 
-      {/* Back Button */}
-      <Link
-        href="/"
+      {/* Go Back Button */}
+      <button
+        onClick={() => router.back()}
         className="inline-flex items-center gap-2 bg-blue-700 text-white px-5 py-3 rounded-full font-medium hover:bg-blue-800 transition"
       >
         <ArrowLeftCircle className="w-5 h-5" />
-        Go back to home
-      </Link>
+        Go Back
+      </button>
     </div>
   );
 }

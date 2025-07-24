@@ -12,8 +12,8 @@ export const cars = [
     capacity: "4 People",
     gallery: ["/car1.png", "/car11.png", "/car22.png"],
     reviews: [
-      { user: "Alex Stanton", date: "31 July 2022", rating: 5, comment: "We are very happy with the service from the MORENT App. Morent has a low price and also a large variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.", avatar: "/avatars/alex.jpg", subtitle: "CEO at Bukalapak" },
-      { user: "Skylar Dias", date: "20 July 2022", rating: 4, comment: "We are greatly helped by the services of the MORENT Application. Morent has low prices and also a wide variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.", avatar: "/avatars/skylar.jpg", subtitle: "CEO at Amazon" }
+      { user: "Alex Stanton", date: "31 July 2022", rating: 5, comment: "We are very happy with the service from the MORENT App. Morent has a low price and also a large variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.", avatar: "/avatar-default.png", subtitle: "CEO at Bukalapak" },
+      { user: "Skylar Dias", date: "20 July 2022", rating: 4, comment: "We are greatly helped by the services of the MORENT Application. Morent has low prices and also a wide variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.", avatar: "/avatar-default.png", subtitle: "CEO at Amazon" }
     ]
   },
   {
@@ -27,8 +27,8 @@ export const cars = [
     capacity: "6 People",
     gallery: ["/car2.png", "/car11.png", "/car22.png"],
     reviews: [
-      { user: "Sarah Johnson", date: "15 August 2022", rating: 5, comment: "Excellent service and a wide variety of cars. The booking process was smooth and the delivery was on time. Highly recommend!", avatar: "/avatars/sarah.jpg", subtitle: "Marketing Manager" },
-      { user: "Michael Chen", date: "10 August 2022", rating: 4, comment: "Good experience overall. The car was clean and well-maintained. The staff was friendly and helpful.", avatar: "/avatars/michael.jpg", subtitle: "Software Engineer" }
+      { user: "Sarah Johnson", date: "15 August 2022", rating: 5, comment: "Excellent service and a wide variety of cars. The booking process was smooth and the delivery was on time. Highly recommend!", avatar: "/avatar-default.png", subtitle: "Marketing Manager" },
+      { user: "Michael Chen", date: "10 August 2022", rating: 4, comment: "Good experience overall. The car was clean and well-maintained. The staff was friendly and helpful.", avatar: "/avatar-default.png", subtitle: "Software Engineer" }
     ]
   },
   {
@@ -42,8 +42,8 @@ export const cars = [
     capacity: "4 People",
     gallery: ["/car1.png", "/car11.png", "/car22.png"],
     reviews: [
-      { user: "Emily Davis", date: "25 July 2022", rating: 5, comment: "Perfect car for a family trip. Comfortable seats and spacious interior. The booking process was quick and easy.", avatar: "/avatars/emily.jpg", subtitle: "Teacher" },
-      { user: "David Rodriguez", date: "20 July 2022", rating: 4, comment: "Good value for money. The car was reliable and easy to drive. The staff was helpful.", avatar: "/avatars/david.jpg", subtitle: "Business Owner" }
+      { user: "Emily Davis", date: "25 July 2022", rating: 5, comment: "Perfect car for a family trip. Comfortable seats and spacious interior. The booking process was quick and easy.", avatar: "/avatar-default.png", subtitle: "Teacher" },
+      { user: "David Rodriguez", date: "20 July 2022", rating: 4, comment: "Good value for money. The car was reliable and easy to drive. The staff was helpful.", avatar: "/avatar-default.png", subtitle: "Business Owner" }
     ]
   },
   {
@@ -57,8 +57,8 @@ export const cars = [
     capacity: "4 People",
     gallery: ["/car2.png", "/car11.png", "/car22.png"],
     reviews: [
-      { user: "Sophia Lee", date: "18 August 2022", rating: 5, comment: "Excellent car and excellent service. The booking process was fast and the delivery was on time. Highly recommend!", avatar: "/avatars/sophia.jpg", subtitle: "Student" },
-      { user: "James Wilson", date: "12 August 2022", rating: 4, comment: "Good experience. The car was clean and comfortable. The staff was friendly and helpful.", avatar: "/avatars/james.jpg", subtitle: "Freelancer" }
+      { user: "Sophia Lee", date: "18 August 2022", rating: 5, comment: "Excellent car and excellent service. The booking process was fast and the delivery was on time. Highly recommend!", avatar: "/avatar-default.png", subtitle: "Student" },
+      { user: "James Wilson", date: "12 August 2022", rating: 4, comment: "Good experience. The car was clean and comfortable. The staff was friendly and helpful.", avatar: "/avatar-default.png", subtitle: "Freelancer" }
     ]
   },
   {
@@ -72,8 +72,8 @@ export const cars = [
     capacity: "6 People",
     gallery: ["/car1.png", "/car11.png", "/car22.png"],
     reviews: [
-      { user: "Olivia Brown", date: "29 July 2022", rating: 5, comment: "Outstanding service and a wide variety of cars. The booking process was smooth and the delivery was on time. Highly recommend!", avatar: "/avatars/olivia.jpg", subtitle: "Designer" },
-      { user: "Ethan Taylor", date: "25 July 2022", rating: 4, comment: "Good experience overall. The car was clean and well-maintained. The staff was friendly and helpful.", avatar: "/avatars/ethan.jpg", subtitle: "Doctor" }
+      { user: "Olivia Brown", date: "29 July 2022", rating: 5, comment: "Outstanding service and a wide variety of cars. The booking process was smooth and the delivery was on time. Highly recommend!", avatar: "/avatar-default.png", subtitle: "Designer" },
+      { user: "Ethan Taylor", date: "25 July 2022", rating: 4, comment: "Good experience overall. The car was clean and well-maintained. The staff was friendly and helpful.", avatar: "/avatar-default.png", subtitle: "Doctor" }
     ]
   },
   {
@@ -87,8 +87,8 @@ export const cars = [
     capacity: "4 People",
     gallery: ["/car2.png", "/car11.png", "/car22.png"],
     reviews: [
-      { user: "Ava Martinez", date: "10 August 2022", rating: 5, comment: "Excellent car and excellent service. The booking process was fast and the delivery was on time. Highly recommend!", avatar: "/avatars/ava.jpg", subtitle: "Accountant" },
-      { user: "Noah Anderson", date: "05 August 2022", rating: 4, comment: "Good experience. The car was clean and comfortable. The staff was friendly and helpful.", avatar: "/avatars/noah.jpg", subtitle: "Engineer" }
+      { user: "Ava Martinez", date: "10 August 2022", rating: 5, comment: "Excellent car and excellent service. The booking process was fast and the delivery was on time. Highly recommend!", avatar: "/avatar-default.png", subtitle: "Accountant" },
+      { user: "Noah Anderson", date: "05 August 2022", rating: 4, comment: "Good experience. The car was clean and comfortable. The staff was friendly and helpful.", avatar: "/avatar-default.png", subtitle: "Engineer" }
     ]
   },
   {
@@ -102,8 +102,8 @@ export const cars = [
     capacity: "4 People",
     gallery: ["/car1.png", "/car11.png", "/car22.png"],
     reviews: [
-      { user: "Isabella Garcia", date: "22 July 2022", rating: 5, comment: "Perfect car for a family trip. Comfortable seats and spacious interior. The booking process was quick and easy.", avatar: "/avatars/isabella.jpg", subtitle: "Lawyer" },
-      { user: "Mason Rodriguez", date: "18 July 2022", rating: 4, comment: "Good value for money. The car was reliable and easy to drive. The staff was helpful.", avatar: "/avatars/mason.jpg", subtitle: "Teacher" }
+      { user: "Isabella Garcia", date: "22 July 2022", rating: 5, comment: "Perfect car for a family trip. Comfortable seats and spacious interior. The booking process was quick and easy.", avatar: "/avatar-default.png", subtitle: "Lawyer" },
+      { user: "Mason Rodriguez", date: "18 July 2022", rating: 4, comment: "Good value for money. The car was reliable and easy to drive. The staff was helpful.", avatar: "/avatar-default.png", subtitle: "Teacher" }
     ]
   },
   {
@@ -117,8 +117,8 @@ export const cars = [
     capacity: "2 People",
     gallery: ["/car2.png", "/car11.png", "/car22.png"],
     reviews: [
-      { user: "Liam Martinez", date: "15 August 2022", rating: 5, comment: "Outstanding service and a wide variety of cars. The booking process was smooth and the delivery was on time. Highly recommend!", avatar: "/avatars/liam.jpg", subtitle: "Entrepreneur" },
-      { user: "Emma Wilson", date: "10 August 2022", rating: 4, comment: "Good experience overall. The car was clean and well-maintained. The staff was friendly and helpful.", avatar: "/avatars/emma.jpg", subtitle: "Designer" }
+      { user: "Liam Martinez", date: "15 August 2022", rating: 5, comment: "Outstanding service and a wide variety of cars. The booking process was smooth and the delivery was on time. Highly recommend!", avatar: "/avatar-default.png", subtitle: "Entrepreneur" },
+      { user: "Emma Wilson", date: "10 August 2022", rating: 4, comment: "Good experience overall. The car was clean and well-maintained. The staff was friendly and helpful.", avatar: "/avatar-default.png", subtitle: "Designer" }
     ]
   },
   {
@@ -132,8 +132,8 @@ export const cars = [
     capacity: "4 People",
     gallery: ["/car1.png", "/car11.png", "/car22.png"],
     reviews: [
-      { user: "Sophia Lee", date: "29 July 2022", rating: 5, comment: "Excellent car and excellent service. The booking process was fast and the delivery was on time. Highly recommend!", avatar: "/avatars/sophia.jpg", subtitle: "Student" },
-      { user: "James Wilson", date: "25 July 2022", rating: 4, comment: "Good experience. The car was clean and comfortable. The staff was friendly and helpful.", avatar: "/avatars/james.jpg", subtitle: "Freelancer" }
+      { user: "Sophia Lee", date: "29 July 2022", rating: 5, comment: "Excellent car and excellent service. The booking process was fast and the delivery was on time. Highly recommend!", avatar: "/avatar-default.png", subtitle: "Student" },
+      { user: "James Wilson", date: "25 July 2022", rating: 4, comment: "Good experience. The car was clean and comfortable. The staff was friendly and helpful.", avatar: "/avatar-default.png", subtitle: "Freelancer" }
     ]
   },
   {
@@ -147,8 +147,8 @@ export const cars = [
     capacity: "2 People",
     gallery: ["/car2.png", "/car11.png", "/car22.png"],
     reviews: [
-      { user: "Liam Martinez", date: "18 August 2022", rating: 5, comment: "Outstanding service and a wide variety of cars. The booking process was smooth and the delivery was on time. Highly recommend!", avatar: "/avatars/liam.jpg", subtitle: "Entrepreneur" },
-      { user: "Emma Wilson", date: "15 August 2022", rating: 4, comment: "Good experience overall. The car was clean and well-maintained. The staff was friendly and helpful.", avatar: "/avatars/emma.jpg", subtitle: "Designer" }
+      { user: "Liam Martinez", date: "18 August 2022", rating: 5, comment: "Outstanding service and a wide variety of cars. The booking process was smooth and the delivery was on time. Highly recommend!", avatar: "/avatar-default.png", subtitle: "Entrepreneur" },
+      { user: "Emma Wilson", date: "15 August 2022", rating: 4, comment: "Good experience overall. The car was clean and well-maintained. The staff was friendly and helpful.", avatar: "/avatar-default.png", subtitle: "Designer" }
     ]
   }
 ]; 

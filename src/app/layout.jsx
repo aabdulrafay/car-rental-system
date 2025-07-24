@@ -1,7 +1,7 @@
-import './globals.css';
-import Header from '../components/Header';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import '@/app/globals.css';
+import Header from '@/components/Header';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Car Rental System',
@@ -11,7 +11,12 @@ export const metadata = {
   robots: 'index, follow',
 };
 
-export default function RootLayout({ children }) {
+function wait(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export default async function RootLayout({ children }) {
+  await wait(1000); // Artificial delay for every page
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen">

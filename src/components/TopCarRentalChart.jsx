@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { MoreHorizontal } from "lucide-react";
 
 // Example dynamic data
 const carRentalData = [
@@ -44,7 +45,11 @@ export default function TopCarRentalChart() {
 
   return (
     <section className="bg-white rounded-2xl shadow p-6 flex flex-col gap-6">
-      <h2 className="text-lg font-bold mb-2">Top 5 Car Rental</h2>
+      {/* Title + More Icon */}
+      <div className="flex justify-between items-center mb-2">
+        <h2 className="text-lg font-bold">Top 5 Car Rental</h2>
+        <MoreHorizontal className="w-6 h-6 text-gray-400 hover:text-gray-600 cursor-pointer" />
+      </div>
       <div className="flex items-center gap-6">
         {/* Dynamic Donut Chart */}
         <div className="relative w-[120px] h-[120px] flex items-center justify-center">

@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const transactions = [
   { id: 1, name: "Nissan GT – R", type: "Sport Car", date: "20 July", price: 80, image: "/car1.png" },
@@ -13,7 +15,9 @@ export default function RecentTransactions() {
     <section className="bg-white rounded-2xl shadow p-6 flex flex-col gap-4">
       <div className="flex justify-between items-center mb-2">
         <h2 className="text-lg font-bold">Recent Transaction</h2>
-        <a href="#" className="text-xs text-blue-600 hover:underline font-semibold">View All</a>
+        <Link href="#" className="text-xs sm:text-sm font-semibold text-blue-600 hover:text-blue-500 flex items-center gap-1">
+          View All <ArrowRight size={16} />
+        </Link>
       </div>
       <ul className="divide-y divide-gray-100">
         {transactions.map(tx => (
