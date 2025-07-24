@@ -11,8 +11,15 @@ export default function LoadingSpinner() {
 
   if (!show) {
     return (
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', width: '100vw' }}>
-        <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-blue-600"></div>
+      <div className="flex items-center justify-center h-screen w-screen bg-white">
+        <div className="relative flex items-center justify-center" style={{ width: 80, height: 80 }}>
+          {/* Spinning Circle */}
+          <div className="absolute animate-spin rounded-full h-20 w-20 border-t-4 border-b-4 border-blue-600"></div>
+          {/* Logo in Center */}
+          <div className="relative z-10 flex items-center justify-center">
+            <span className="text-base font-bold text-blue-700 font-plus-jakarta select-none">MORENT</span>
+          </div>
+        </div>
       </div>
     );
   }
