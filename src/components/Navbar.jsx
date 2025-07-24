@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Search,
   Heart,
@@ -5,48 +7,81 @@ import {
   Settings,
   SlidersHorizontal,
 } from "lucide-react";
+import { motion, useAnimation } from "framer-motion";
+import { useRef } from "react";
 
 export default function Navbar() {
+  // For search bar focus animation
+  const searchInputRef = useRef(null);
+  const searchControls = useAnimation();
+
+  function handleFocus() {
+    searchControls.start({ width: 540 });
+  }
+  function handleBlur() {
+    searchControls.start({ width: 500 });
+  }
+
   return (
     <nav className="bg-white px-8 md:px-16 py-4 flex items-center justify-between shadow-md z-30 relative">
       {/* Left Side: Logo + Search */}
       <div className="flex items-center space-x-6">
         {/* Logo */}
         <a href="/">
-        <div className="mr-20 text-2xl font-bold text-blue-700 font-plus-jakarta">
-          MORENT
-        </div>
+          <motion.div
+            className="mr-20 text-2xl font-bold text-blue-700 font-plus-jakarta"
+            initial={{ opacity: 0, y: 16, scale: 0.92 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+          >
+            MORENT
+          </motion.div>
         </a>
 
         {/* Search Bar (not centered, wider) */}
-        <div className="hidden md:flex items-center bg-white rounded-full px-4 py-2 w-[500px] border border-gray-300">
+        <motion.div
+          className="hidden md:flex items-center bg-white rounded-full px-4 py-2 w-[500px] border border-gray-300"
+          animate={searchControls}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+          style={{ overflow: 'hidden' }}
+        >
           <Search className="w-5 h-5 text-gray-500 mr-2" />
-          <input
+          <motion.input
             type="text"
             placeholder="Search something here"
             className="bg-transparent outline-none w-full"
+            ref={searchInputRef}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            initial={false}
+            animate={false}
+            transition={false}
           />
           <SlidersHorizontal className="w-5 h-5 text-gray-500 ml-2" />
-        </div>
+        </motion.div>
       </div>
 
       {/* Right Side: Icons + Profile */}
       <div className="flex items-center space-x-5 text-gray-600">
         <div className="hidden md:flex items-center space-x-3">
-          <IconCircle>
+          <MotionIconCircle>
             <Heart className="w-4 h-4" />
-          </IconCircle>
+          </MotionIconCircle>
 
           <div className="relative">
-            <IconCircle>
+            <MotionIconCircle>
               <Bell className="w-4 h-4" />
-            </IconCircle>
-            <span className="absolute top-0 right-0 w-3 h-3 bg-red-600 rounded-full border-2 border-white"></span>
+            </MotionIconCircle>
+            <motion.span
+              className="absolute top-0 right-0 w-3 h-3 bg-red-600 rounded-full border-2 border-white"
+              animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
+              transition={{ duration: 1.2, repeat: Infinity, repeatType: 'loop', times: [0, 0.5, 1] }}
+            ></motion.span>
           </div>
 
-          <IconCircle>
+          <MotionIconCircle>
             <Settings className="w-4 h-4" />
-          </IconCircle>
+          </MotionIconCircle>
         </div>
 
         {/* Profile Image */}
@@ -62,11 +97,16 @@ export default function Navbar() {
   );
 }
 
-// Reusable circle icon wrapper
-function IconCircle({ children }) {
+// Reusable animated circle icon wrapper
+function MotionIconCircle({ children }) {
   return (
-    <div className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 cursor-pointer hover:text-blue-700 hover:border-blue-700 transition">
+    <motion.div
+      className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 cursor-pointer hover:text-blue-700 hover:border-blue-700 transition"
+      whileHover={{ scale: 1.13, color: '#2563eb', borderColor: '#2563eb' }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: 'tween', duration: 0.18 }}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 }
