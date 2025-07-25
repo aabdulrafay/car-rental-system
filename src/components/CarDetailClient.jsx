@@ -81,16 +81,16 @@ export default function CarDetailClient({ car, cars, recommendedCars }) {
                     <AnimatePresence mode="wait">
                       <MotionImage
                         key={imgKey + selectedImage}
-                        src={car.gallery?.[selectedImage] || car.image}
-                        alt={car.name}
-                        width={340}
-                        height={160}
-                        className="object-contain w-[220px] h-[100px] sm:w-[340px] sm:h-[160px]"
+                      src={car.gallery?.[selectedImage] || car.image}
+                      alt={car.name}
+                      width={340}
+                      height={160}
+                      className="object-contain w-[220px] h-[100px] sm:w-[340px] sm:h-[160px]"
                         initial={{ opacity: 0, scale: 0.96, x: 32 }}
                         animate={{ opacity: 1, scale: 1, x: 0 }}
                         exit={{ opacity: 0, scale: 0.96, x: -32 }}
                         transition={{ duration: 0.5, ease: 'easeOut' }}
-                      />
+                    />
                     </AnimatePresence>
                   </div>
                 </div>

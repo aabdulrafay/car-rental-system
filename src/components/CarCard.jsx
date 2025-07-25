@@ -49,7 +49,7 @@ export default function CarCard({ car }) {
         <motion.div
           animate={favAnim ? { scale: [1, 1.3, 1], rotate: [0, -15, 0] } : { scale: 1, rotate: 0 }}
           transition={{ duration: 0.35, times: [0, 0.5, 1] }}
-        >
+      >
           <Heart
             className={`w-6 h-6 transition ${isFav ? 'text-red-500' : 'text-gray-500'} hover:text-red-500 focus:text-red-500`}
             fill={isFav ? '#ef4444' : 'none'}
