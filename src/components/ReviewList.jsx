@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function ReviewList({ reviews }) {
   const [showAll, setShowAll] = useState(false);
@@ -23,9 +24,11 @@ export default function ReviewList({ reviews }) {
             transition={{ duration: 0.5, delay: 0.15 + i * 0.12, ease: 'easeOut' }}
           >
             {/* Avatar */}
-            <img
+            <Image
               src={review.avatar || '/avatar-default.png'}
               alt={review.user}
+              width={56}
+              height={56}
               className="w-14 h-14 rounded-full object-cover border"
             />
             <div className="flex-1">

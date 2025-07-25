@@ -11,12 +11,7 @@ export const metadata = {
   robots: 'index, follow',
 };
 
-function wait(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-export default async function RootLayout({ children }) {
-  await wait(1000); // Artificial delay for every page
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen">

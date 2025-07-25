@@ -7,6 +7,8 @@ import { Heart } from "lucide-react";
 import CarCategorySection from "@/components/CarCategorySection";
 import { motion, AnimatePresence } from "framer-motion";
 
+const MotionImage = motion(Image);
+
 export default function CarDetailClient({ car, cars, recommendedCars }) {
   // Filter state for recent cars
   const [filters, setFilters] = useState({
@@ -77,7 +79,7 @@ export default function CarDetailClient({ car, cars, recommendedCars }) {
                   <p className="text-blue-100 text-xs sm:text-base mb-4">{subheadline}</p>
                   <div className="flex justify-center items-center flex-1 w-full">
                     <AnimatePresence mode="wait">
-                      <motion.img
+                      <MotionImage
                         key={imgKey + selectedImage}
                         src={car.gallery?.[selectedImage] || car.image}
                         alt={car.name}
@@ -125,7 +127,7 @@ export default function CarDetailClient({ car, cars, recommendedCars }) {
                         animate={favAnim ? { scale: [1, 1.3, 1], rotate: [0, -15, 0] } : { scale: 1, rotate: 0 }}
                         transition={{ duration: 0.35, times: [0, 0.5, 1] }}
                       >
-                        <Heart className={`w-6 h-6 sm:w-7 sm:h-7 transition ${isFav ? 'text-red-500' : 'text-gray-500'} hover:text-red-500`} fill={isFav ? '#ef4444' : 'none'} />
+                      <Heart className={`w-6 h-6 sm:w-7 sm:h-7 transition ${isFav ? 'text-red-500' : 'text-gray-500'} hover:text-red-500`} fill={isFav ? '#ef4444' : 'none'} />
                       </motion.div>
                     </motion.span>
                   </div>

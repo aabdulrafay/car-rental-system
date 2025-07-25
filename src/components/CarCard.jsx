@@ -4,6 +4,7 @@ import { Heart, Fuel, Users, Gauge } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function CarCard({ car }) {
   const router = useRouter();
@@ -64,9 +65,11 @@ export default function CarCard({ car }) {
       </div>
       {/* Car Image */}
       <div className="p-4 pb-0">
-        <img
+        <Image
           src={car.image}
           alt={car.name}
+          width={300}
+          height={144}
           className="w-full h-36 object-contain"
         />
       </div>
